@@ -1,0 +1,15 @@
+Qué son los Service Workers?
+
+Es un script que se ejecuta en el fonde, separado del web
+app, el cual da acceso a caracteristicas que no necesitan
+interaccion del usuario.
+
+    •Escritos en JavaScript,es simplemente un archivo más
+    •No tienen acceso al DOM
+    •Funcionan como Proxy (controlan cómo se ejecutan las llamadas en red)
+    •Son detenidos cuando no estan en usuario
+    •Funcionan solo sobre HTTPS
+    •Sus métodos están basados en promesas
+
+
+

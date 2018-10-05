@@ -1,0 +1,16 @@
+Lo primero a tener en cuenta es que los 
+siguientes comandos funcionan con la version
+6.0.0 en adelante con el framework de angular
+
+1- Verificar version de Angular 
+
+    ng version
+
+2- Generar un proyecto de angular
+
+    ng new [nombre-proyecto]
+
+3- Crear el Service Worker 
+
+    ng add @angular/pwa
+    

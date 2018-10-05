@@ -1,0 +1,17 @@
+Para esto se debe tener en cuenta que por
+los service workers esta aplicacion solo podra ejecutarse
+por medio de los archivos en construidos para produccion
+
+
+1- build app para produccion
+
+    ng build --prod
+
+2- para poder visualizar la app primero debemos instalar 
+   un paquete de npm para similar un servidor que corra la aplicacion
+
+    npm install  -g http-server
+
+3- correr el comando para correr la app en la carpeta raiz
+
+        http-server

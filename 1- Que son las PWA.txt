@@ -1,0 +1,8 @@
+las aplicaciones web progresivas son una evolución natural de las aplicaciones 
+web que difuminan la barrera entre la web y las aplicaciones, pudiendo realizar 
+tareas que generalmente solo las aplicaciones nativas podían llevar a cabo. 
+Algunos ejemplos son las notificaciones, el funcionamiento sin conexión a 
+Internet o la posibilidad de probar una versión más ligera antes de bajarte 
+una aplicación nativa de verdad.
+
+

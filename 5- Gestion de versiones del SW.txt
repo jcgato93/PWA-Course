@@ -1,0 +1,42 @@
+1- Crear un Script para automatizar el lanzamiento 
+de la aplicacion 
+En el package.json
+
+        {
+        "name": "myproject",
+        "version": "0.0.0",
+        "license": "MIT",
+        "scripts": {
+            .....
+            "build:server": "ng build --prod; http-server ./dist"
+            .....
+        }
+        }
+
+2- Para correr el Script 
+
+    npm run build:server
+
+
+3- Para tener una version mas actualizada de la SW 
+   hacemos lo siguiente en el component
+
+   import { SwUpdate } from '@angular/service-worker';
+
+     constructor(private swUpdate: SwUpdate){
+
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    
+    //Check if Service Worker is available for the browser
+    if (this.swUpdate.isEnabled) {
+      //Check if exist a new version of services worker
+      this.swUpdate.available.subscribe(()=>{
+        //refresh the page
+        window.location.reload();
+      });
+    }
+    
+  }

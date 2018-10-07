@@ -1,0 +1,79 @@
+1- Instalar angular material 
+
+ para versiones menores a 6.0.0
+    npm install --save @angular/material @angular/cdk @angular/animations
+
+ para la version 6.0.0 y mayor
+
+    ng add @angular/material
+
+2- Una vez que el paquete de animaciones esté instalado, impórtelo 
+BrowserAnimationsModuleen su aplicación para habilitar el soporte de animaciones.
+
+    import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+    @NgModule({
+    ...
+    imports: [BrowserAnimationsModule],
+    ...
+    })
+    export class PizzaPartyAppModule { }
+
+
+3- Crear un NgModule independiente que importe todos los componentes
+de angular material que usara en su aplicacion. Luego puede incluir este modulo
+donde quiera que desee usar los componentes.
+
+    ng g module material
+
+    import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
+    @NgModule({
+    imports: [MatButtonModule, MatCheckboxModule],
+    exports: [MatButtonModule, MatCheckboxModule],
+    })
+    export class MaterialModule { }
+
+
+4- Importar en el app.module el module previamente creado
+
+    imports: [
+    BrowserModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    MaterialModule
+  ],
+
+    Nota :Cualquiera que sea el enfoque que utilice, 
+    asegúrese de importar los módulos de Material Angular 
+    después de los de Angular BrowserModule, ya que el orden de 
+    importación es importante para NgModules.
+
+
+5- Se requiere la inclusión de un tema para aplicar todos los estilos de 
+   núcleo y tema a su aplicación.
+Para comenzar con un tema creado previamente, 
+incluya uno de los temas creados previamente de 
+Angular Material globalmente en su aplicación. 
+Si está utilizando la CLI angular, puede agregar esto a su styles.css:
+
+        @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+6- Apoyo gestual 
+
+Algunos componentes ( mat-slide-toggle, mat-slider, matTooltip) 
+se basan en HammerJS de gestos. Para obtener el conjunto 
+completo de características de estos componentes, HammerJS debe cargarse en la aplicación.
+
+    npm install --save hammerjs
+
+    Después de la instalación, impórtelo en el 
+    punto de entrada de su aplicación (por ejemplo src/main.ts).
+
+    import 'hammerjs';
+
+7- Importar iconos 
+    cargeu la fuente del icono en su archivo index.html
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  

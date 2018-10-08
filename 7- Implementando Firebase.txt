@@ -1,0 +1,37 @@
+1- Crear el proyecto en Firebase
+
+2- Instalar firebase en el proyecto de angular
+    npm install firebase @angular/fire --save
+
+3- Pegar la configuracion en enviroment.ts
+
+     export const environment = {
+        production: false,
+        firebase: {
+            apiKey: '<your-key>',
+            authDomain: '<your-project-authdomain>',
+            databaseURL: '<your-database-URL>',
+            projectId: '<your-project-id>',
+            storageBucket: '<your-storage-bucket>',
+            messagingSenderId: '<your-messaging-sender-id>'
+        }
+        };
+
+
+4- en el app.module.ts
+
+       import { AngularFireModule } from '@angular/fire';
+       import { AngularFirestoreModule } from '@angular/fire/firestore';
+       import { AngularFireStorageModule } from '@angular/fire/storage';
+       import { AngularFireAuthModule } from '@angular/fire/auth';
+       import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+        imports:[
+            .....
+            AngularFireModule.initializeApp(environment.firebase),
+            AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+            AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+            AngularFireStorageModule, // imports firebase/storage only needed for storage features
+            AngularFireDatabaseModule
+            ...
+        ]

@@ -13,6 +13,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { NoteService } from './services/note.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    NoteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

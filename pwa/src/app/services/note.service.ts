@@ -13,24 +13,25 @@ export class NoteService {
     this.items = db.list('/notes/').valueChanges();
   }
 
-  public getNotes(){
+  public getNotes() {
     return this.items;
-    //return this.db.list('/notes/');
+    // return this.db.list('/notes/');
   }
 
-  public getNote(id){
-    return this.db.object('/notes/'+id);
+  public getNote(id) {
+    return this.db.object('/notes/' + id);
   }
 
-  public createNote(note){    
-    return this.db.database.ref('/notes/'+note.id).set(note);
+  public createNote(note) {
+    note.id=Date.now();
+    return this.db.database.ref('/notes/' + note.id).set(note);
   }
 
-  public editNote(note){    
-    return this.db.database.ref('/notes/'+note.id).set(note);
+  public editNote(note) {
+    return this.db.database.ref('/notes/' + note.id).set(note);
   }
 
-  public deleteNote(note){
+  public deleteNote(note) {
     return this.db.database.ref('notes').child(note.id).remove();
   }
 

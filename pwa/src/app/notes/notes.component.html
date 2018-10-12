@@ -1,0 +1,48 @@
+<div class="container-fluid" >
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Notes
+        </mat-panel-title>
+        <mat-panel-description>
+          Create or Edit Note
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input matInput placeholder="Title" [(ngModel)]="note.title">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-select placeholder="Category" [(ngModel)]="note.category" >
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.value">
+            {{category.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <textarea matInput placeholder="Description" [(ngModel)]="note.body"></textarea>
+      </mat-form-field>
+
+      <button  mat-raised-button color="accent" (click)="saveNote()"> 
+        Save Note !
+      </button>
+
+    </mat-expansion-panel>
+ 
+    <mat-card class="card-note" *ngFor="let note of notes"  (click)="selectNote(note)">
+      <h3 matLine>{{note.title}}</h3>
+      <p matLine>{{note.body}}</p>
+      <small matLine class="card-footer-note"> 
+        <div>
+        {{note.category}}
+        </div>
+        <div>{{note.id | date}}</div>
+      </small>
+    </mat-card>
+
+  </mat-accordion>
+</div>

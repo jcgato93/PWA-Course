@@ -15,16 +15,24 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { NoteService } from './services/note.service';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { NotesComponent } from './notes/notes.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AuthorizationService } from './services/authorization.service';
+import { AuthorizationGuardService } from './guards/authorization-guard.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     FormsModule,
+    AppRoutingModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
@@ -33,7 +41,9 @@ import { FormsModule } from '@angular/forms';
     AngularFireDatabaseModule
   ],
   providers: [
-    NoteService
+    NoteService,
+    AuthorizationService,
+    AuthorizationGuardService
   ],
   bootstrap: [AppComponent]
 })

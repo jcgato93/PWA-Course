@@ -1,0 +1,27 @@
+Puede ver cómo se almacenan en caché los activos estáticos en el almacenamiento en caché. 
+También puede intentar desconectar su aplicación y volver a cargarla para ver cómo se 
+comporta la aplicación cuando se almacenan en caché los activos.
+
+para especificar que "Urls" se guardaran en cache, vamos primero al archivo
+ngsw-config.json y realizamos la siguiente configuracion
+
+    }],
+    "dataGroups":[
+        {
+        "name":"FirebaseAPI",
+        "url": [
+            "https://notapps-34526.firebaseio.com/**"
+        ],
+        "cacheConfig":{
+            "strategy":"freshness",
+            "maxAge": "2h",
+            "maxSize": 100,
+            "timeout": "5s"
+        }
+        }
+    ]
+
+
+en "strategy" se utiliza "freshness" para que cada cambio refresque la pagina
+y en "url" cofiguramos la url que se estara consultando , que en este caso sera la 
+dababaseURl de firebase 

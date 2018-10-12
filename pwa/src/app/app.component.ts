@@ -68,6 +68,12 @@ export class AppComponent implements OnInit {
     })
   }
 
+
+  /**
+   * Show the information in the fields 
+   * of create note for can edit the note
+   * @param note 
+   */
   selectNote(note){
     this.note = note;
   }

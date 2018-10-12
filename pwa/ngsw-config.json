@@ -20,5 +20,19 @@
         "/assets/**"
       ]
     }
-  }]
+  }],
+  "dataGroups":[
+    {
+    "name":"FirebaseAPI",
+    "url": [
+        "https://notapps-34526.firebaseio.com/**"
+    ],
+    "cacheConfig":{
+        "strategy":"freshness",
+        "maxAge": "2h",
+        "maxSize": 100,
+        "timeout": "5s"
+    }
+    }
+   ]
 }

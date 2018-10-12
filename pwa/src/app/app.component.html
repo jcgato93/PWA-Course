@@ -42,26 +42,16 @@
 
     </mat-expansion-panel>
  
-    <mat-list>
-        <mat-list-item>
-          <h3 matLine> Title 1 </h3>
-          <p matLine> Body 1 </p>
-          <p matLine > Category 1 </p>
-        </mat-list-item>
-
-        <mat-list-item>
-            <h3 matLine> Title 2 </h3>
-            <p matLine> Body 2 </p>
-            <p matLine > Category 2 </p>
-          </mat-list-item>
-
-          <mat-list-item>
-              <h3 matLine> Title 3 </h3>
-              <p matLine> Body 3 </p>
-              <p matLine> Category 3 </p>
-            </mat-list-item>
-
-    </mat-list>
+    <mat-card  *ngFor="let nota of notes">
+      <h3 matLine>{{nota.title}}</h3>
+      <p matLine>{{nota.body}}</p>
+      <small matLine class="card-note"> 
+        <div>
+        {{nota.category}}
+        </div>
+        <div>{{nota.id | date}}</div>
+      </small>
+    </mat-card>
 
   </mat-accordion>
 </div>

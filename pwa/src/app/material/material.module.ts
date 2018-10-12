@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule, MatCheckboxModule, MatInputModule, MatOptionModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatOptionModule, MatSnackBarModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   imports: [
@@ -23,7 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     MatOptionModule,
     MatListModule, 
-    MatIconModule 
+    MatIconModule,
+    MatSnackBarModule,
+    MatCardModule
 
   ],
   declarations: []

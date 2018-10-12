@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { NoteService } from './services/note.service';
+import { MatSnackBar } from '@angular/material';
+
+
 
 
 @Component({
@@ -18,9 +21,18 @@ export class AppComponent implements OnInit {
   ];
 
   note:any = {};
-
+  notes: any = [];
   constructor(private swUpdate: SwUpdate,
-   private noteService: NoteService) {
+   private noteService: NoteService,
+   private snackBar: MatSnackBar) {
+
+    this.noteService.getNotes()
+        .subscribe((fbNotes)=>{
+        this.notes = fbNotes.reverse(),
+        console.log(fbNotes)
+        },(error)=>{
+          console.log(error)
+        }) 
   }
 
   ngOnInit(): void {
@@ -46,7 +58,9 @@ export class AppComponent implements OnInit {
     console.log(this.note)
     this.noteService.createNote(this.note)
       .then((result)=>{
-        alert("Successful!")
+        this.snackBar.open("Successful!", null, {
+          duration: 2000,
+        });
         this.note={};
     })
     .catch((error)=>{

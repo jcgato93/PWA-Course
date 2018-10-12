@@ -42,14 +42,14 @@
 
     </mat-expansion-panel>
  
-    <mat-card  *ngFor="let nota of notes">
-      <h3 matLine>{{nota.title}}</h3>
-      <p matLine>{{nota.body}}</p>
-      <small matLine class="card-note"> 
+    <mat-card class="card-note" *ngFor="let note of notes"  (click)="selectNote(note)">
+      <h3 matLine>{{note.title}}</h3>
+      <p matLine>{{note.body}}</p>
+      <small matLine class="card-footer-note"> 
         <div>
-        {{nota.category}}
+        {{note.category}}
         </div>
-        <div>{{nota.id | date}}</div>
+        <div>{{note.id | date}}</div>
       </small>
     </mat-card>
 

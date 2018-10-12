@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
    * Save the Note
    */
   saveNote(){
-    console.log(this.note)
+    console.log(this.note)    
     this.noteService.createNote(this.note)
       .then((result)=>{
         this.snackBar.open("Successful!", null, {
@@ -68,5 +68,8 @@ export class AppComponent implements OnInit {
     })
   }
 
+  selectNote(note){
+    this.note = note;
+  }
 
 }

@@ -23,7 +23,9 @@ export class NoteService {
   }
 
   public createNote(note) {
-    note.id=Date.now();
+    if (!note.id) {
+      note.id=Date.now();  
+    }    
     return this.db.database.ref('/notes/' + note.id).set(note);
   }
 
